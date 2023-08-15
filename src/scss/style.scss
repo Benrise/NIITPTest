@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap&subset=cyrillic-ext");
+
+@import 'reset.scss';
+@import 'variables.scss';
+@import "mixins.scss";
+@import 'icons.scss';
+
+
+body {
+  font-family: "Inter", "sans-serif";
+  font-size: to-rem(20);
+  background-color: $color-bg;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+[class*="__container"] {
+  max-width: 1728px;
+  margin: 0 auto;
+}
+
+@import "main";

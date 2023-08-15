@@ -1,0 +1,8 @@
+.main {
+    flex: 1 1 auto;
+    @include adaptive-value("padding", $container-padding, 6);
+  }
+
+.main-block {
+    
+}
