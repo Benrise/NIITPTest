@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 
 import Users from "@/pages/Users.vue";
 import Comments from "@/pages/Comments.vue";
+import Error from "@/pages/Error.vue";
 
 const routes = [
     {
@@ -14,6 +15,11 @@ const routes = [
         name: 'comments',
         component: Comments,
     },
+    { 
+        path: "/:catchAll(.*)",
+        name: 'error',
+        component: Error 
+    }
 ]
 
 const router = createRouter({
