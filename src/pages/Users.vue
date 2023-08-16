@@ -1,21 +1,24 @@
 <template>
     <div class="main-block">
-        <li v-for="user in users" :key="user.id">
-            <router-link :to="{ name: 'comments', params: { userId: user.id }}"><div class="test">{{user.username}}</div></router-link>
-        </li>
+        <div class="main-block__container">
+            <Header></Header>
+            <Delimiter></Delimiter>
+            <div class="users">
+                <div class="users__header">
+                    <div class="users__info">
+                        92 Пользователей
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-    export default {
-        data(){
-            return {
-                users: [
-                    {username: 'Benrise', id: 1, name: 'Artem'},
-                    {username: 'Benristar', id: 2, name: 'Tema'},
-                    {username: 'TommyOG', id: 3, name: 'Yura'},
-                ]
-            }
-        }
-    }
+import Header from '@/components/blocks/Header.vue'
+import Delimiter from '@/components/blocks/Delimiter.vue'
+
+export default {
+    components: {Header, Delimiter}
+}
 </script>

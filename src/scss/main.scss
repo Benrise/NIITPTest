@@ -1,8 +1,14 @@
 .main {
     flex: 1 1 auto;
-    @include adaptive-value("padding", $container-padding, 6);
+    padding: to-rem(48) to-rem(96) to-rem(48) to-rem(96);
   }
 
 .main-block {
-    
+  &__container{
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    border: 1px solid black;
+    @include adaptive-value('padding', $container-padding, 6)
+  }
 }

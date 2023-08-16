@@ -1,0 +1,21 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 36px;
+    &__right,
+    &__left{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: to-rem(24);
+    }
+
+    &__left{
+        width: fit-content
+    }
+
+    &__title{
+        @include title;
+    }
+}

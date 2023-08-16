@@ -1,3 +1,4 @@
-.test{
-    @include adaptive-value('font-size', 500, 20);
-}
+@import 'header.scss';
+@import 'search.scss';
+@import 'button.scss';
+@import 'delimiter.scss'

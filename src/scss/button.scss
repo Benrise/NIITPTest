@@ -1,0 +1,19 @@
+.button{
+    padding: to-rem(16);
+    height: to-rem(60);
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: to-rem(16);
+    background-color: #F2F1F0; //milky
+    cursor: pointer;
+
+    &:hover{
+        opacity: 0.8 ;
+    }
+}
+
+._onlyIcon {
+    width: to-rem(60);
+}

@@ -31,7 +31,7 @@
 }
 
 @mixin title {
-	font-weight: 800;
+	font-weight: 600;
 	@include adaptive-value("font-size", 40, 16, 700, 280, 1);
 	@include adaptive-value("line-height", 58, 20, 700, 280, 1);
 	color: $color-font;

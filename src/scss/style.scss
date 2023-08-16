@@ -1,15 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap&subset=cyrillic-ext");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap&subset=cyrillic-ext");
 
 @import 'reset.scss';
 @import 'variables.scss';
 @import "mixins.scss";
 @import 'icons.scss';
-
+@import 'main.scss';
 
 body {
   font-family: "Inter", "sans-serif";
   font-size: to-rem(20);
   background-color: $color-bg;
+  color: $color-font;
 }
 
 .wrapper {
@@ -24,5 +25,10 @@ body {
   margin: 0 auto;
 }
 
-@import 'main.scss';
+._disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
 @import 'users.scss';
