@@ -50,8 +50,8 @@
 		$start-size: 0.0001;
 	}
 
-	$width-from-media: em($width-from);
-	$width-to-media: em($width-to);
+	$width-from-media: to-em($width-from);
+	$width-to-media: to-em($width-to);
 
 	// Source: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
 	$slope: calc(($start-size - $min-size) / ($width-from - $width-to));
