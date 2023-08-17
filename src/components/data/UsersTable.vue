@@ -10,38 +10,49 @@
                     @rowSelect="onUserSelect(selectedUser.id)"
                     :loading="loading"
                     filterDisplay="row"
-                    class="p-datatable-sm"
         >
             <template #header>
                 <div class="flex flex-wrap align-items-center justify-content-between gap-2">
                     <span class="text-xl text-900 font-bold">Пользователи</span>
                     <span class="p-input-icon-left">
                         <i class="pi pi-search" />
-                        <InputText v-model="filters.global.value" placeholder="Поиск пользователей" />
+                        <InputText 
+                            v-model="filters.global.value" 
+                            placeholder="Поиск пользователей" />
                     </span>
                 </div>
             </template>
             <template #empty> Пользователи не найдены. </template>
             <template #loading> Загрузка данных о пользователях. Пожалуйста, подождите. </template>
 
-            <Column field="name" header="Имя пользователя" sortable style="width: 20%"></Column>
-            <Column field="email" header="Электронная почта" style="width: 20%"></Column>
+            <Column field="name" header="Имя пользователя" sortable></Column>
+            <Column field="email" header="Электронная почта"></Column>
             <Column header="Адрес" style="width: 35%">
                 <template #body="{ data }">
                     {{formatAddress(data.address)}}
                 </template>       
             </Column>
-            <Column field="phone" header="Номер телефона" style="width: 25%">
+            <Column field="phone" header="Номер телефона">
                 <template #filter="{ filterModel, filterCallback }">
-                    <InputText v-model="filterModel.value" type="text" @input="filterCallback()" class="p-column-filter" placeholder="Фильтр по номеру" />
+                    <InputText 
+                        v-model="filterModel.value" 
+                        type="text" 
+                        @input="filterCallback()" 
+                        class="p-column-filter" 
+                        placeholder="Фильтр по номеру" />
                 </template>
             </Column>
-            <Column field="website" header="Веб-сайт" style="width: 25%">
+            <Column field="website" header="Веб-сайт">
             </Column>
 
-            <Column field="company.name" header="Компания" style="width: 25%">
+            <Column field="company.name" header="Компания">
                 <template #filter="{ filterModel, filterCallback }">
-                    <InputText v-model="filterModel.value" type="text" @input="filterCallback()" class="p-column-filter" placeholder="Фильтр по компаннии" />
+                    <InputText 
+                        v-model="filterModel.value" 
+                        type="text" 
+                        @input="filterCallback()" 
+                        class="p-column-filter" 
+                        placeholder="Фильтр по компаннии" />
                 </template>
             </Column>
             <template #footer> Всего {{ users ? users.length : 0 }} пользователей. </template>
