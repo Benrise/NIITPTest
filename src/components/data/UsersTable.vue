@@ -4,13 +4,20 @@
                     removableSort 
                     tableStyle="min-width: 50rem"
                     v-model:selection="selectedUser"
+                    v-model:filters="filters"
                     selectionMode="single"
                     dataKey="id"
                     @rowSelect="onUserSelect(selectedUser.id)"
+                    :loading="loading"
+                    filterDisplay="row"
         >
             <template #header>
                 <div class="flex flex-wrap align-items-center justify-content-between gap-2">
                     <span class="text-xl text-900 font-bold">Пользователи</span>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search" />
+                        <InputText v-model="filters.global.value" placeholder="Поиск пользователей" />
+                    </span>
                 </div>
             </template>
             <template #empty> Пользователи не найдены. </template>
@@ -23,9 +30,17 @@
                     {{formatAddress(data.address)}}
                 </template>       
             </Column>
-            <Column field="phone" header="Номер телефона" style="width: 25%"></Column>
+            <Column field="phone" header="Номер телефона" style="width: 25%">
+                <!-- <template #filter="{ filterModel, filterCallback }">
+                    <InputText v-model="filterModel.value" type="text" @input="filterCallback()" class="p-column-filter" placeholder="Search by name" />
+                </template> -->
+            </Column>
             <Column field="website" header="Веб-сайт" style="width: 25%"></Column>
-            <Column field="company.name" header="Компании" sortable style="width: 25%"></Column>
+            <Column field="company.name" header="Компании" sortable style="width: 25%">
+                <!-- <template #filter="{ filterModel, filterCallback }">
+                    <InputText v-model="filterModel.value" type="text" @input="filterCallback()" class="p-column-filter" placeholder="Search by name" />
+                </template>   -->
+            </Column>
 
             <template #footer> Всего {{ users ? users.length : 0 }} пользователей. </template>
         </DataTable>
@@ -37,14 +52,21 @@
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Button from 'primevue/button';
+import InputText from 'primevue/inputtext';
+import { FilterMatchMode } from "primevue/api";
 import Axios from 'axios';
 
 export default {
-    components: {DataTable, Column, Axios, Button},
+    components: {DataTable, Column, Axios, Button, InputText, FilterMatchMode},
     data() {
         return{
             users: {},
-            selectedUser: {}
+            selectedUser: {},
+            filters: {
+                global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+                company: { value: null, matchMode: FilterMatchMode.EQUALS },
+                phone: { value: null, matchMode: FilterMatchMode.EQUALS },
+            },
         }
     },
     mounted(){
@@ -70,11 +92,10 @@ export default {
         },
         onUserSelect(id){
             this.$router.push({ name: 'comments', params: { userId: id } })
+        },
+        filterCallback(){
+            alert('')
         }
     }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

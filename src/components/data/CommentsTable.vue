@@ -1,6 +1,6 @@
 <template>
-    <div>
-
+    <div class="comments-table">
+        
     </div>
 </template>
 
@@ -9,7 +9,3 @@
         
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
