@@ -6,7 +6,7 @@
                     v-model:selection="selectedUser"
                     selectionMode="single"
                     dataKey="id"
-                    @rowSelect="onUserSelect"
+                    @rowSelect="onUserSelect(selectedUser.id)"
         >
             <template #header>
                 <div class="flex flex-wrap align-items-center justify-content-between gap-2">
@@ -68,8 +68,8 @@ export default {
                     console.error(error)
                 })
         },
-        onUserSelect(){
-
+        onUserSelect(id){
+            this.$router.push({ name: 'comments', params: { userId: id } })
         }
     }
 }
