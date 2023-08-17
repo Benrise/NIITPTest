@@ -9,6 +9,7 @@
                         92 Пользователей
                     </div>
                 </div>
+                <UserTable></UserTable>
             </div>
         </div>
     </div>
@@ -17,8 +18,9 @@
 <script>
 import Header from '@/components/blocks/Header.vue'
 import Delimiter from '@/components/blocks/Delimiter.vue'
+import UserTable from '@/components/data/UserTable.vue'
 
 export default {
-    components: {Header, Delimiter}
+    components: {Header, Delimiter, UserTable}
 }
 </script>
