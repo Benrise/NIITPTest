@@ -1,17 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap&subset=cyrillic-ext");
+@import "primevue/resources/themes/viva-light/theme.css";
+@import 'primeflex/primeflex.scss';
+@import 'primeicons/primeicons.css';
 
 @import 'reset.scss';
 @import 'variables.scss';
 @import "mixins.scss";
-@import 'icons.scss';
 @import 'main.scss';
-
-body {
-  font-family: "Inter", "sans-serif";
-  font-size: to-rem(20);
-  background-color: $color-bg;
-  color: $color-font;
-}
 
 .wrapper {
   min-height: 100%;
