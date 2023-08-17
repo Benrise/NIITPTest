@@ -10,6 +10,7 @@
                     @rowSelect="onUserSelect(selectedUser.id)"
                     :loading="loading"
                     filterDisplay="row"
+                    class="p-datatable-sm"
         >
             <template #header>
                 <div class="flex flex-wrap align-items-center justify-content-between gap-2">
@@ -23,25 +24,26 @@
             <template #empty> Пользователи не найдены. </template>
             <template #loading> Загрузка данных о пользователях. Пожалуйста, подождите. </template>
 
-            <Column field="name" header="Имя пользователя" sortable style="width: 25%"></Column>
-            <Column field="email" header="Электронная почта" style="width: 25%"></Column>
-            <Column header="Адрес" style="width: 25%">
+            <Column field="name" header="Имя пользователя" sortable style="width: 20%"></Column>
+            <Column field="email" header="Электронная почта" style="width: 20%"></Column>
+            <Column header="Адрес" style="width: 35%">
                 <template #body="{ data }">
                     {{formatAddress(data.address)}}
                 </template>       
             </Column>
             <Column field="phone" header="Номер телефона" style="width: 25%">
-                <!-- <template #filter="{ filterModel, filterCallback }">
-                    <InputText v-model="filterModel.value" type="text" @input="filterCallback()" class="p-column-filter" placeholder="Search by name" />
-                </template> -->
+                <template #filter="{ filterModel, filterCallback }">
+                    <InputText v-model="filterModel.value" type="text" @input="filterCallback()" class="p-column-filter" placeholder="Фильтр по номеру" />
+                </template>
             </Column>
-            <Column field="website" header="Веб-сайт" style="width: 25%"></Column>
-            <Column field="company.name" header="Компании" sortable style="width: 25%">
-                <!-- <template #filter="{ filterModel, filterCallback }">
-                    <InputText v-model="filterModel.value" type="text" @input="filterCallback()" class="p-column-filter" placeholder="Search by name" />
-                </template>   -->
+            <Column field="website" header="Веб-сайт" style="width: 25%">
             </Column>
 
+            <Column field="company.name" header="Компания" style="width: 25%">
+                <template #filter="{ filterModel, filterCallback }">
+                    <InputText v-model="filterModel.value" type="text" @input="filterCallback()" class="p-column-filter" placeholder="Фильтр по компаннии" />
+                </template>
+            </Column>
             <template #footer> Всего {{ users ? users.length : 0 }} пользователей. </template>
         </DataTable>
     </div>
@@ -64,7 +66,7 @@ export default {
             selectedUser: {},
             filters: {
                 global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-                company: { value: null, matchMode: FilterMatchMode.EQUALS },
+                'company.name': { value: null, matchMode: FilterMatchMode.EQUALS },
                 phone: { value: null, matchMode: FilterMatchMode.EQUALS },
             },
         }
@@ -74,7 +76,6 @@ export default {
     },
     methods: {
         formatAddress(address){
-            console.log(JSON.stringify(address))
             let formattedAddress;
             formattedAddress = `${address.city}, ${address.street} ${address.suite} ${address.zipcode}`;
             return formattedAddress;
@@ -92,9 +93,6 @@ export default {
         },
         onUserSelect(id){
             this.$router.push({ name: 'comments', params: { userId: id } })
-        },
-        filterCallback(){
-            alert('')
         }
     }
 }
