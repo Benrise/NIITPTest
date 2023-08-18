@@ -82,7 +82,7 @@
 
 **Клонирование**
 ```sh
-git clone https://github.com/Benrise/Widgets
+git clone https://github.com/Benrise/Widgets.git
 ```
 
 **Установка**
