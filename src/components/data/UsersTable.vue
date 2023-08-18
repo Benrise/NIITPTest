@@ -54,9 +54,8 @@
                         placeholder="Фильтр по компаннии" />
                 </template>
             </Column>
-            <template #footer> Всего {{ users ? users.length : 0 }} пользователей. </template>
+            <template #footer> Всего {{ usersLength }} пользователей. </template>
         </DataTable>
-        <RouterView />
     </div>
 </template>
 
@@ -92,6 +91,11 @@ export default {
     mounted(){
         this.getUsers()
         console.log(Boolean(this.$isMobile))
+    },
+    computed:{
+        usersLength(){
+            return this.users ? this.users.length : 0
+        }
     },
     methods: {
         formatAddress(address){

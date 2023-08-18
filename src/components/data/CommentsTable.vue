@@ -37,9 +37,8 @@
                     />
                 </template>
             </Column>
-            <template #footer> Всего {{ comments ? comments.length : 0 }} комменнтариев. </template>
+            <template #footer> Всего {{ commentsLength }} комменнтариев. </template>
         </DataTable>
-        <RouterView />
     </div>
 </template>
 
@@ -53,10 +52,23 @@ import { FilterMatchMode } from "primevue/api";
 import Axios from 'axios';
 
     export default { 
-        components: {DataTable, Column, Axios, Button, InputText, FilterMatchMode, TriStateCheckbox},
+        components: {
+            DataTable, 
+            Column, 
+            Axios, 
+            Button, 
+            InputText, 
+            FilterMatchMode, 
+            TriStateCheckbox
+        },
         mounted(){
             this.userId = this.$route.params.userId
             this.getComments(this.userId)
+        },
+        computed:{
+            commentsLength(){
+                return this.comments ? this.comments.length : 0
+            }
         },
         data() {
             return{
