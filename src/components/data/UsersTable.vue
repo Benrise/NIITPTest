@@ -7,7 +7,7 @@
                     v-model:filters="filters"
                     selectionMode="single"
                     dataKey="id"
-                    @rowSelect="onUserSelect(selectedUser.id)"
+                    @row-dblclick="onUserSelect(selectedUser.id)"
                     filterDisplay="row"
         >
             <template #header>
@@ -101,8 +101,10 @@ export default {
                 })
         },
         onUserSelect(id){
+            
             this.$router.push({ name: 'comments', params: { userId: id } })
         }
+
     }
 }
 </script>

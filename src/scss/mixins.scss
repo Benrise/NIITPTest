@@ -8,35 +8,6 @@
 	@return $result;
 }
 
-@mixin transition-all($duration: 0.3s, $timing-function: ease-out) {
-	-webkit-transition: all $duration $timing-function;
-	-moz-transition: all $duration $timing-function;
-	-o-transition: all $duration $timing-function;
-	transition: all $duration $timing-function;
-}
-
-@mixin body {
-	font-weight: 400;
-	@include adaptive-value("font-size", 24, 12, 700, 280, 1);
-	@include adaptive-value("line-height", 29, 15, 700, 280, 1);
-	color: $color-font;
-}
-
-@mixin subtitle {
-	font-weight: 600;
-	@include adaptive-value("font-size", 24, 16);
-	@include adaptive-value("line-height", 29, 19);
-	color: $color-font;
-	opacity: 0.8;
-}
-
-@mixin title {
-	font-weight: 600;
-	@include adaptive-value("font-size", 40, 16, 700, 280, 1);
-	@include adaptive-value("line-height", 58, 20, 700, 280, 1);
-	color: $color-font;
-}
-
 @mixin adaptive-value($property, $start-size, $min-size, $width-from: $container-width, $width-to: $min-width, $keep-size: 0) {
 	$add-size: ($start-size - $min-size);
 
