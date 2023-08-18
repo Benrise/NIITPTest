@@ -10,10 +10,10 @@
             :globalFilterFields="['completed']"
         >
             <template #header>
-                <div class="flex flex-wrap align-items-center justify-content-between gap-2">
+                <div class="flex flex-wrap align-items-center justify-content-between gap-5">
                     <div class="flex align-items-center justify-content-between gap-5">
                         <Button icon="pi pi-arrow-left" rounded aria-label="Filter" @click="toBack()" />
-                        <span class="text-xl text-900 font-bold">Комментарии пользователя под идентификатором <span class="font-bold">{{userId}}</span></span>
+                        <span class="text-xl-custom text-900 font-bold">Комментарии пользователя под идентификатором <span class="font-bold">{{userId}}</span></span>
                     </div>
                     <span class="p-input-icon-left">
                         <i class="pi pi-search" />

@@ -8,6 +8,7 @@
 @import 'variables.scss';
 @import "mixins.scss";
 @import 'main.scss';
+@import 'components.scss';
 
 body {
   font-family: "Inter", "sans-serif";
@@ -31,6 +32,8 @@ body {
   cursor: default;
   opacity: 0.5;
 }
+
+
 
 @import 'error.scss';
 @import 'users.scss';

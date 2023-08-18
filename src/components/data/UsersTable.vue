@@ -8,12 +8,11 @@
                     selectionMode="single"
                     dataKey="id"
                     @rowSelect="onUserSelect(selectedUser.id)"
-                    :loading="loading"
                     filterDisplay="row"
         >
             <template #header>
                 <div class="flex flex-wrap align-items-center justify-content-between gap-2">
-                    <span class="text-xl text-900 font-bold">Пользователи</span>
+                    <span class="text-xl-custom text-900 font-bold">Пользователи</span>
                     <span class="p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText 
@@ -23,7 +22,6 @@
                 </div>
             </template>
             <template #empty> Пользователи не найдены. </template>
-            <template #loading> Загрузка данных о пользователях. Пожалуйста, подождите. </template>
 
             <Column field="name" header="Имя пользователя" sortable></Column>
             <Column field="email" header="Электронная почта"></Column>

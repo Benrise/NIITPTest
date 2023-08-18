@@ -4,6 +4,12 @@
     align-items: center;
     &__title{
         color: dodgerblue;
-        font-size: to-rem(512);
+        @include adaptive-value('font-size',512, 32);
+    }
+    &__text{
+        color: black;
+        &:hover{
+            color: #5472d4;
+        }
     }
 }

@@ -2,8 +2,12 @@
     flex: 1 1 auto;
     padding: to-rem(48) to-rem(96);
 
-    @media (max-width: to-rem(1100)){
+    @media (max-width: to-rem(1091.98)){
       padding: to-rem(24) to-rem(48);
+    }
+
+    @media (max-width: to-rem(479.98)){
+      padding: to-rem(12) to-rem(12);
     }
   }
 
@@ -17,3 +21,4 @@
     @include adaptive-value('padding', $container-padding, 6)
   }
 }
+
