@@ -101,7 +101,6 @@ export default {
                 })
         },
         onUserSelect(id){
-            
             this.$router.push({ name: 'comments', params: { userId: id } })
         }
 
