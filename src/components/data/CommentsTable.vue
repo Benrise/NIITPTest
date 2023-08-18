@@ -82,6 +82,6 @@ import Axios from 'axios';
             toBack(){
                 this.$router.go(-1)
             }
-        }   
+        }
 }
 </script>

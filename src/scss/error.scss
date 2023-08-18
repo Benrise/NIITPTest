@@ -1,0 +1,9 @@
+.error{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__title{
+        color: dodgerblue;
+        font-size: to-rem(512);
+    }
+}
