@@ -7,7 +7,8 @@
                     v-model:filters="filters"
                     selectionMode="single"
                     dataKey="id"
-                    @row-dblclick="onUserSelect(selectedUser.id)"
+                    @row-dblclick="onUserDblClick(selectedUser.id)" 
+                    @rowSelect="onUserTap(selectedUser.id)"
                     filterDisplay="row"
         >
             <template #header>
@@ -68,7 +69,14 @@ import { FilterMatchMode } from "primevue/api";
 import Axios from 'axios';
 
 export default {
-    components: {DataTable, Column, Axios, Button, InputText, FilterMatchMode},
+    components: {
+        DataTable, 
+        Column, 
+        Axios, 
+        Button, 
+        InputText, 
+        FilterMatchMode
+    },
     data() {
         return{
             users: {},
@@ -82,6 +90,7 @@ export default {
     },
     mounted(){
         this.getUsers()
+        console.log(Boolean(this.$isMobile))
     },
     methods: {
         formatAddress(address){
@@ -100,10 +109,14 @@ export default {
                     console.error(error)
                 })
         },
-        onUserSelect(id){
+        onUserDblClick(id){
             this.$router.push({ name: 'comments', params: { userId: id } })
+        },
+        onUserTap(id){
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+                this.$router.push({ name: 'comments', params: { userId: id } })
         }
-
     }
+        
 }
 </script>
