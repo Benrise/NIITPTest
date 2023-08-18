@@ -56,6 +56,7 @@
             </Column>
             <template #footer> Всего {{ users ? users.length : 0 }} пользователей. </template>
         </DataTable>
+        <RouterView />
     </div>
 </template>
 

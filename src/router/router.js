@@ -11,7 +11,7 @@ const routes = [
         component: Users,
     },
     {
-        path: '/comments/:userId ',
+        path: '/comments/:userId',
         name: 'comments',
         component: Comments,
     },
@@ -24,7 +24,7 @@ const routes = [
 
 const router = createRouter({
     routes,
-    history: createWebHistory(),
+    history: createWebHistory(import.meta.env.BASE_URL),
 })
 
 export default router;

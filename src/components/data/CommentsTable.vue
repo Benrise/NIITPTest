@@ -39,6 +39,7 @@
             </Column>
             <template #footer> Всего {{ comments ? comments.length : 0 }} комменнтариев. </template>
         </DataTable>
+        <RouterView />
     </div>
 </template>
 
