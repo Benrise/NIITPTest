@@ -1,7 +1,124 @@
-# Vue 3 + Vite
+<p>
+  <h3 >Тестовое задание (Frontend & openAPI)</h3>
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+  <p>
+    Веб-приложение, состоящее из 2 виджетов - таблицы пользователей и их комментариев.
+  </p>
+</p>
 
-## Recommended IDE Setup
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Структура
+
+* [Задание](#задание)
+* [Технологии](#технологии)
+* [Развертывание](#развертывание)
+* [Материалы](#материалы)
+
+
+## Задание
+
+Используя открытый сервер тестовых JSON данных (https://jsonplaceholder.typicode.com), необходимо было создать 2
+таблицы пользователей и их комментариев. 
+
+Входными данными являлись:
+<br>
+- JSON пользователей:
+(https://jsonplaceholder.typicode.com/users) и 
+- JSON комментариев
+(https://jsonplaceholder.typicode.com/todos).
+
+### Требования к таблицам (виджетам)
+**1. Требования к таблице пользователей**
+
+*Данные:*
+- Наименование пользователя (name)
+- Адрес электронной почты (email)
+- Адрес со всей информацией (address)
+- Номер телефона (phone)
+- Веб сайт (website)
+- Наименование компании (company.name)
+
+*Функциональность:*
+- Фильтрация по компании
+- Фильтрация по номеру телефона
+- Сортировка по наименованию
+- При двойном нажатии на запись таблицы, должен быть переход на страницу с
+таблицей комментариев.
+
+**2. Требования к таблице комментариев**
+
+*Данные:*
+- Комментарий (title)
+
+*Функциональность:*
+- Фильтрация по завершенным комментариям флаг (completed)
+- Выделять любым способом коментарии с флагом завершенности равным true
+(completed=true)
+- Подгрузка коментариев должна быть по идентификатору пользователя, путем
+запроса JSON по адресу https://jsonplaceholder.typicode.com/todos?userId=value
+
+### Инструментарий:
+**Можно использовать свободный инструментарий**
+<br>
+*Использование свободного инструментария значительно упрощает выполнение тестового задания.*
+
+## Технологии
+
+Приложение разработано на связке Vue 3 + Vite с использованием UI библиотеки [PrimeVue](https://primevue.org/).
+- [PrimeFlex](https://primeflex.org/)
+- [PrimeIcons](https://primevue.org/icons/)
+- [PrimeVue](https://primevue.org/)
+
+Для реализации маршрутизации использовался [Vue Router](https://router.vuejs.org/)
+
+Для обработки HTTP запросов использовался [Axios](https://axios-http.com/docs/example)
+
+### Развертывание
+
+Для локального запуска веб-приложения необходим:
+
+* npm >= 5.5.0
+* node >=12.0
+
+**Клонирование**
+```sh
+git clone https://github.com/Benrise/Widgets
+```
+
+**Установка**
+```sh
+npm install
+```
+
+**Запуск**
+```sh
+npm run dev
+```
+
+*Note:*
+<br>
+*В случае возникновения возможных ошибок при установке модуля "node-sass", рекомендуется выполнить:*
+```sh
+npm uninstall node-sass
+npm install --save-dev sass
+```
+
+### Материалы
+
+*Скриншоты созданного веб-приложения с таблицей пользователей и таблицей их коммментариев:*
+
+**Таблица пользователей**
+![image](https://github.com/Benrise/Widgets/assets/55480132/3eac480e-1891-4c19-af5d-07ab88461ad2)
+
+*Фильтрация по номмеру телефона*
+![image](https://github.com/Benrise/Widgets/assets/55480132/43edc9c7-4fcb-4778-9ff4-4acd6e42fb2c)
+
+
+**Таблица комментариев пользователя**
+![image](https://github.com/Benrise/Widgets/assets/55480132/d1535cde-19ab-41a0-8659-1c44801ec614)
+
+*Фильтрация по завершённымм комментариям (флаг completed=false)*
+![image](https://github.com/Benrise/Widgets/assets/55480132/21aba673-6e0c-40d4-9f2d-ddc027801329)
+
+*Фильтрация по завершённымм комментариям (флаг completed=true)*
+![image](https://github.com/Benrise/Widgets/assets/55480132/5d912f9e-c565-4a76-a594-92755825e5c4)
