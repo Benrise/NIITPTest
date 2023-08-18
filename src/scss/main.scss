@@ -1,6 +1,10 @@
 .main {
     flex: 1 1 auto;
-    padding: to-rem(48) to-rem(96) to-rem(48) to-rem(96);
+    padding: to-rem(48) to-rem(96);
+
+    @media (max-width: to-rem(1100)){
+      padding: to-rem(24) to-rem(48);
+    }
   }
 
 .main-block {

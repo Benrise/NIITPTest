@@ -32,7 +32,7 @@
                     {{formatAddress(data.address)}}
                 </template>       
             </Column>
-            <Column field="phone" header="Номер телефона">
+            <Column field="phone" header="Номер телефона" style="width: 20%">
                 <template #filter="{ filterModel, filterCallback }">
                     <InputText 
                         v-model="filterModel.value" 
@@ -45,7 +45,7 @@
             <Column field="website" header="Веб-сайт">
             </Column>
 
-            <Column field="company.name" header="Компания">
+            <Column field="company.name" header="Компания" style="width: 20%">
                 <template #filter="{ filterModel, filterCallback }">
                     <InputText 
                         v-model="filterModel.value" 
